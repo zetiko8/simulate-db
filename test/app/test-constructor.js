@@ -9,6 +9,7 @@ describe("Db creation", function () {
                 username: { type: 'String', required: true },
                 password: { type: 'String', required: true },
             },
+            'username',
             [
                 {
                     username: 'anze',
@@ -33,23 +34,16 @@ describe("Db creation", function () {
                 username: { type: 'String', required: true },
                 password: { type: 'String', required: true },
             },
+            'username',
             [
                 {
                     username: 'anze',
                     password: 'kolsek'
                 },
-                {
-                    username: 'ziga',
-                    password: 'sega',
-                },
-                {
-                    username: 'biba',
-                    password: 'cop'
-                }
             ]
         )
 
-        expect(User instanceof Object)
+        expect(User.primaryKey).to.eql('username')
     })
     it("Should throw error on ivalid model new Db", function () {
         expect(
@@ -58,6 +52,7 @@ describe("Db creation", function () {
                     username: { required: true },
                     password: { type: 'String', required: true },
                 },
+                'username',
                 [
                     {
                         username: 'anze',
@@ -74,6 +69,7 @@ describe("Db creation", function () {
                     username: { type: 'String', required: true },
                     password: { type: 'String', required: true },
                 },
+                'username',
                 [
                     {
                         username: 'anze',

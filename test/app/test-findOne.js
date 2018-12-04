@@ -8,6 +8,7 @@ var User = new Db(
         username: { type: 'String', required: true },
         password: { type: 'String', required: true },
     },
+    'username',
     [
         {
             username: 'anze',
@@ -26,15 +27,14 @@ var User = new Db(
 
 describe("Retrieve data", function () {
     it("Should retrieve data from db", function () {
-        User.findOne('brandon', (err, user) => {
+        User.findOne('ziga', (err, user) => {
             if (err) {
                 expect.fail('Error: record not inserted properly')
                 done()
             } else {
-                expect(user.password).to.eql('stark')
+                expect(user.password).to.eql('sega')
                 done()
             }
         })
-        done()
     })
 })
